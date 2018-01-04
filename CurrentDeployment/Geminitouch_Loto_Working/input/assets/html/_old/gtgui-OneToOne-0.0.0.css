@@ -1,0 +1,2463 @@
+/*
+ * This item is the property of IGT Global Solutions Corporation, Providence,
+ * Rhode Island, and contains confidential and trade secret information.
+ * It may not be transferred from the custody or control of IGT except
+ * as authorized in writing by an officer of IGT.  Neither this item
+ * nor the information it contains may be used, transferred, reproduced,
+ * published, or disclosed, in whole or in part, and directly or
+ * indirectly, except as expressly authorized by an officer of IGT,
+ * pursuant to written agreement.
+ *
+ * Copyright © 2014, 2015 IGT Global Solutions Corporation.  All rights reserved.
+ */
+
+@font-face {
+    font-family: CantarellBold;
+    font-weight: bold;
+    src: url(content/fonts/Cantarell-Bold.ttf);
+}
+
+@font-face {
+    font-family: guiFont;
+    font-weight: bold;
+    src: url(content/fonts/Vegur-Bold.otf);
+}
+
+body {
+
+    /*cursor: none;*/
+}
+
+.guiDiv {
+
+    font-family: guiFont;
+    font-weight: bold;
+    text-shadow: black 1px 1px 1px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1080px;
+    height: 1464px;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    -webkit-filter: none;
+}
+
+/*
+// ----------------------------------------------------------------------------
+// HELP ZONE
+// ----------------------------------------------------------------------------
+*/
+.helpZone {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1080px;
+    height: 1464px;
+    z-index: 101;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.helpZoneLoadedObject {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+}
+
+/*
+// ----------------------------------------------------------------------------
+// GAME ZONE
+// ----------------------------------------------------------------------------
+*/
+.gameZoneArea {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    -webkit-filter: none;
+
+    /* Force GPU - allows the dual filters to work*/
+    -webkit-transform: translateZ(0);
+}
+
+.gameZoneArea[data-deviceidle="true"] {
+
+    -webkit-filter: brightness(35%);
+}
+
+.gameZoneArea[data-presenter="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameZoneArea[data-help="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameZoneArea[data-help="enabled"][data-presenter="enabled"] {
+
+       -webkit-filter: brightness(5%) grayscale(100%);
+}
+
+.gameZoneOnlineTextArea {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1080px;
+    height: 191px;
+    display: none;
+}
+
+.gameZoneOnlineTextArea[data-bins="28"] {
+    
+    height: 191px;
+}
+
+.gameZoneOnlineTextArea[data-flipped="flipping"] {
+
+    display: none;
+}
+
+.gameZoneOnlineTextArea[data-flipped="true"] {
+
+    top: 1456px;
+}
+
+.gameZoneOnlineText {
+
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50px;
+    color: red;
+    text-align: center;
+    font-size: 44pt;
+
+    text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
+    line-height: 50px;
+}
+
+.gameZoneOnlineTextArea[data-printer="error"] {
+
+    -webkit-box-shadow: inset 0 0 30px rgb(225, 25, 25);
+    display: block;
+}
+
+.gameZoneOnlineTextArea[data-printer="paperlow"] {
+
+    -webkit-box-shadow: inset 0 0 30px rgb(250, 250, 30);
+    display: block;
+    pointer-events: none;
+}
+
+.gameZoneOnlineTextArea[data-printer="paperout"] {
+
+    -webkit-box-shadow: inset 0 0 30px rgb(225, 25, 25);
+    display: block;
+}
+
+.gameZoneOnlineTextArea[data-flipped="flipping"] {
+
+    display: none;
+}
+
+.gameZoneAreaBlocker {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    display: none;
+}
+
+.gameZoneAreaBlocker[data-devicestate="disabled"] {
+
+    display: block;
+}
+
+.gameZoneAreaBlocker[data-presenter="enabled"] {
+
+    display: block;
+}
+
+/*
+// ----------------------------------------------------------------------------
+// PROMPT AREA
+// ----------------------------------------------------------------------------
+*/
+.promptArea {
+
+    position: absolute;
+    top: 673px;
+    left: 0px;
+    width: 1080px;
+    height: 118px;
+    -webkit-filter: none;
+    background-image: -webkit-linear-gradient(bottom, rgb(20, 20, 20) 20%, rgb(50, 50, 50) 80%);
+}
+
+.promptArea[data-bins="28"] {
+    top: 766px;
+}
+
+.promptArea[data-bins="28"][data-activesamplers="true"] {
+    top: 766px;
+}
+
+.promptArea[data-activesamplers="true"]{
+    
+    top: 658px;
+}
+
+.promptArea[data-help="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.promptArea[data-deviceidle="true"] {
+
+    -webkit-filter: brightness(35%);
+}
+
+.promptArea[data-devicestate="warning"] {
+
+    background-image: -webkit-linear-gradient(bottom, rgb(250, 250, 3) 20%, rgb(198, 198, 65) 80%);
+}
+
+.promptArea[data-devicestate="error"], 
+.promptArea[data-devicestate="cashlessWarning"] {
+
+    background-image: -webkit-linear-gradient(bottom, rgb(255, 3, 3) 20%, rgb(158, 3, 3) 80%);
+}
+
+.promptArea[data-devicestate="cashlessYellow"] {
+
+    background-image: -webkit-linear-gradient(bottom, rgb(250, 250, 3) 20%, rgb(198, 198, 65) 80%);
+}
+
+.promptArea[data-devicestate="disabled"],
+.promptArea[data-devicestate="errorEnabled"]{
+
+    background-image: -webkit-linear-gradient(bottom, rgb(255, 3, 3) 20%, rgb(158, 3, 3) 80%);
+}
+
+.promptAreaPrompt {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 118px;
+    width: 630px;
+    color: white;
+    text-align: center;
+    font-size: 28pt;
+    text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
+    line-height: 90px;
+}
+
+
+.promptAreaPrompt h1 {
+
+    width: 100%;
+    top: 15px;
+    position: relative;
+    font-size: 28pt;
+    -webkit-margin-after: 0px;
+    -webkit-margin-before: 0px;
+    line-height: normal;
+}
+
+.prompt-cashless {
+
+    font-size: 24pt !important;
+
+}
+
+.promptAreaPrompt h2 {
+
+    width: 100%;
+    top: 13px;
+    position: relative;
+    font-size: 21pt;
+    -webkit-margin-after: 3px;
+    -webkit-margin-before: 0px;
+    line-height: normal;
+}
+
+.promptAreaPrompt:lang(fr) {
+
+    font-size: 23pt;
+}
+
+.promptAreaCreditPlaque {
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 450px;
+    height: 118px;
+    background-color: #222222;
+    border-radius: 10px 0px 0px 10px;
+    border-left: 3px solid #000;
+}
+
+.promptAreaCreditPlaque button {
+    color: white;
+    font-family: guiFont;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #eeeeee;
+    text-shadow: black 1px 1px 1px;
+}
+
+.promptAreaCreditPlaque button {
+    color: white;
+    font-family: guiFont;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #eeeeee;
+    text-shadow: black 1px 1px 1px;
+}
+
+.promptAreaCredits {
+
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    right: 0px;
+    color: white;
+    line-height: 41px;
+    font-size: 20pt;
+    text-align: left;
+}
+
+.promptAreaCreditText {
+
+    position: absolute;
+    /*top: 15px;
+    right: 185px;
+    left: 0px; */
+    color: white;
+    line-height: 41px;
+    font-size: 20pt;
+    text-align: right;
+    right: auto;
+    left: 10px;
+    top: 55px;
+}
+
+.promptAreaCreditText:lang(fr){
+
+}
+
+.promptAreaCreditButton {
+
+    position: absolute;
+    /*jm added */
+    display: none;
+    top: 2px;
+    right: 0px;
+    width: 100px;
+    height: 47px;
+    text-shadow: none;
+    border: none;
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.promptAreaButtons {
+
+    position: absolute;
+    top: 40px;
+    left: 5px;
+    width: 300px;
+}
+
+.promptAreaButtons button {
+
+    color: white;
+    font-family: guiFont;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #eeeeee;
+    text-shadow: black 1px 1px 1px;
+}
+
+.promptAreaButtonFlip {
+
+    position: absolute;
+    top: 6px;
+    left: 285px;
+    width: 155px;
+    height: 30px;
+    background: -webkit-linear-gradient(top,  rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);
+}
+
+.promptAreaButtonFlip:active {
+
+    background: -webkit-linear-gradient(top,  rgba(0,128,255,1) 0%,rgba(0,221,255,1) 100%);
+}
+
+.promptAreaCashLess {
+    position: absolute;
+    top: 15px;
+    left: 3px;
+    width: 260px;
+    height: 34px;
+    font-size: 18px !important;
+    background: -webkit-linear-gradient(top,  rgb(20,117,52) 0%,rgb(3,69,37) 100%);
+}
+
+.promptAreaCashLess:active {
+
+    background: -webkit-linear-gradient(top,  rgb(20,117,52) 0%,rgb(54,186,69) 100%);
+}
+
+
+.promptAreaCashLess:disabled {
+    background: #ccc;
+    color: #555;
+    text-shadow: none;
+    border-color: #777;
+}  
+
+.promptAreaCashLessCancel {
+    position: absolute;
+    top: 15px;
+    left: 3px;
+    width: 260px;
+    height: 34px;
+    font-size: 18px !important;
+    background: red;
+}
+
+.promptAreaCashLessHidden {
+    display: none;
+}
+
+
+.promptAreaCashLessSessionInit {
+    position: absolute;
+    top: 15px;
+    left: 3px;
+    width: 220px;
+    height: 30px;
+    background: -webkit-linear-gradient(top,  rgb(232,202,0) 0%,rgb(213,128,0) 100%);
+
+}  
+
+.promptAreaButtonHelp {
+
+    position: absolute;
+    top: 44px;
+    left: 285px;
+    width: 155px;
+    height: 30px;
+    background: -webkit-linear-gradient(top,  rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);
+}
+
+.promptAreaButtonHelp:active {
+
+    background: -webkit-linear-gradient(top,  rgba(0,128,255,1) 0%,rgba(0,221,255,1) 100%);
+}
+
+.promptAreaButtonLanguage {
+
+    position: absolute;
+    top: 81px;
+    left: 285px;
+    width: 155px;
+    height: 30px;
+
+    background: -webkit-linear-gradient(top,  rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);
+}
+
+.promptAreaButtonLanguage:active {
+
+    background: -webkit-linear-gradient(top,  rgba(0,128,255,1) 0%,rgba(0,221,255,1) 100%);
+}
+
+/*
+// ----------------------------------------------------------------------------
+// GAMES
+// ----------------------------------------------------------------------------
+*/
+.gameArea {
+
+    position: absolute;
+    
+    width: 270px;
+    height: 15.32331489071038%;
+
+    text-shadow: black 1px 1px 1px;
+    color: white;
+
+    -webkit-transition-property: top, left;
+    -webkit-transition-duration: 0.35s;
+    -webkit-transition-timing-function: linear;
+}
+
+.gameArea[data-bins="28"] {
+
+    height: 191px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-flipped="true"][data-bins="28"] {
+
+    top: 1454px;
+    height: 192px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-flipped="true"] {
+
+    top: 1426px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-bins="28"] {
+   
+   height: 192px;
+
+}  
+
+.gameArea[data-gametype="ONLINE"] {
+
+    width: 154px;
+    height: 222px;
+}   
+
+.gameArea[data-gametype="ONLINE"][data-game="Sampler"][data-activesamplers="false"] {
+
+    display: none;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Layout normal
+/* ------------------------------------------------------------------------- */
+
+.gameArea[data-gametype="ONLINE"][data-flipped="false"] {
+    
+    top: 0px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-flipped="true"] {
+    
+    top: 1430px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-flipped="true"][data-bins="28"] {
+    
+    top: 1457px;
+}
+
+.gameArea[data-game="Powerball"] {
+    
+    left: 0px;
+}
+
+.gameArea[data-game="MegaMillions"] {
+    
+    left: 154px;
+}
+
+.gameArea[data-game="Lotto"] {
+   
+    left: 308px;
+}
+
+.gameArea[data-game="Hit5"] {
+ 
+    left: 462px;
+}
+
+.gameArea[data-game="Match4"] {
+ 
+    left: 616px;
+}
+
+.gameArea[data-game="Pick3"] {
+ 
+    left: 770px;
+}
+
+.gameArea[data-game="DailyKeno"] {
+ 
+    left: 924px;
+}
+
+
+/* ------------------------------------------------------------------------- */
+/* Layout Sampler
+/* ------------------------------------------------------------------------- */
+
+.gameArea[data-gametype="ONLINE"][data-activesamplers="true"][data-flipped="false"]  {
+
+    width: 270px;
+    height: 111px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-activesamplers="true"][data-bins="28"]  {
+
+    height: 97px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-activesamplers="true"][data-flipped="true"] {
+
+    top: 1426px;
+    height: 111px;
+    width: 270px;
+}
+
+.gameArea[data-gametype="ONLINE"][data-activesamplers="true"][data-flipped="true"][data-bins="28"] {
+
+    top: 1454px;
+    height: 97px;
+}
+
+.gameArea[data-game="Powerball"][data-activesamplers="true"] {
+
+    left: 0px;
+}
+
+.gameArea[data-game="MegaMillions"][data-activesamplers="true"] {
+
+    left: 270px;
+}
+
+.gameArea[data-game="Lotto"][data-activesamplers="true"] {
+
+    left: 540px;
+}
+
+.gameArea[data-game="Hit5"][data-activesamplers="true"] {
+
+    left: 810px;
+}
+
+.gameArea[data-game="Match4"][data-activesamplers="true"] {
+
+    top: 111px;
+    left: 0px;
+}
+
+.gameArea[data-game="Match4"][data-activesamplers="true"][data-bins="28"] {
+
+    top: 97px;
+    left: 0px;
+}
+
+.gameArea[data-game="Match4"][data-activesamplers="true"][data-flipped="true"] {
+
+    top: 1537px;
+    left: 0px;
+}
+
+.gameArea[data-game="Match4"][data-activesamplers="true"][data-flipped="true"][data-bins="28"] {
+
+    top: 1551px;
+    left: 0px;
+}
+
+.gameArea[data-game="Pick3"][data-activesamplers="true"] {
+
+    top: 111px;
+    left: 270px;
+}
+
+.gameArea[data-game="Pick3"][data-activesamplers="true"][data-bins="28"] {
+
+    top: 97px;
+    left: 270px;
+}
+
+.gameArea[data-game="Pick3"][data-activesamplers="true"][data-flipped="true"] {
+
+    top: 1537px;
+    left: 270px;
+}
+
+.gameArea[data-game="Pick3"][data-activesamplers="true"][data-flipped="true"][data-bins="28"] {
+
+    top: 1551px;
+    left: 270px;
+}
+
+.gameArea[data-game="DailyKeno"][data-activesamplers="true"] {
+
+    top: 111px;
+    left: 540px;
+}
+
+.gameArea[data-game="DailyKeno"][data-activesamplers="true"][data-bins="28"] {
+
+    top: 97px;
+    left: 540px;
+}
+
+.gameArea[data-game="DailyKeno"][data-activesamplers="true"][data-flipped="true"] {
+
+    top: 1537px;
+    left: 540px;
+}
+
+.gameArea[data-game="DailyKeno"][data-activesamplers="true"][data-flipped="true"][data-bins="28"] {
+
+    top: 1551px;
+    left: 540px;
+}
+
+.gameArea[data-game="Sampler"][data-activesamplers="true"] {
+
+    top: 111px;
+    left: 810px;
+}
+
+.gameArea[data-game="Sampler"][data-activesamplers="true"][data-bins="28"] {
+
+    top: 97px;
+    left: 810px;
+}
+
+.gameArea[data-game="Sampler"][data-activesamplers="true"][data-flipped="true"] {
+
+    top: 1537px;
+    left: 810px;
+}
+
+.gameArea[data-game="Sampler"][data-activesamplers="true"][data-flipped="true"][data-bins="28"] {
+
+    top: 1551px;
+    left: 810px;
+}
+
+.gameAreaPlaque {
+
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-image: -webkit-linear-gradient(left, rgb(25, 25, 25) 40%, rgb(30, 30, 30) 60%);
+    -webkit-box-shadow: none;
+}
+
+.gameAreaPlaque[data-devicestate="disabled"] {
+
+    -webkit-box-shadow: inset 0 0 30px rgb(225, 25, 25);
+}
+
+.gameAreaPlaque[data-state="error"][data-gametype="INSTANT"] {
+
+   -webkit-box-shadow: inset 0 0 30px rgb(225, 25, 25);
+}
+
+.gameAreaContainer {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.gameAreaImageLoadedObject {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    pointer-events: none;
+}
+
+.gameAreaImage {
+
+    position: absolute;
+    top: 15px;
+    left: 44px;
+    width: 174px;
+    height: 170px;
+    
+    border: none;
+
+    border-radius: 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(content/images/no_game_image.png);
+
+    -webkit-box-shadow: none;
+    -webkit-transition-property: top, left, width, height, transform;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease-in-out;
+
+    -webkit-filter: none;/* Force GPU - allows the dual filters to work*/
+
+    -webkit-transform: translateZ(0);
+
+    padding: 0px;
+    margin: 0px;    
+}
+
+.gameAreaImageNoAnimate {
+
+    -webkit-transition: none !important;
+}
+
+.gameAreaImage[data-bins="28"] {
+
+    top: 8px;
+    left: 45px;
+    width: 174px;
+    height: 174px;    
+} 
+
+.gameAreaImage[data-gametype="ONLINE"] {
+    top: 13px;
+    left: 1px;
+    width: 148px;
+    height: 193px;
+}
+
+.gameAreaImage[data-gametype="ONLINE"][data-activesamplers="true"] {
+
+    top: 4px;
+    left: 0px;
+    width: 264px;
+    height: 97px;
+}
+
+.gameAreaImage[data-gametype="ONLINE"][data-bins="28"] {
+
+    top: 4px;
+    left: 1px;
+    width: 140px;
+    height: 178px;
+}
+
+.gameAreaImage[data-gametype="ONLINE"][data-bins="28"][data-activesamplers="true"] {
+    
+    top: 1px;
+    left: 5px;
+    width: 255px;
+    height: 90px;
+}
+
+.gameAreaImage:active {
+
+    -webkit-transition: none !important;
+    -webkit-box-shadow: 0 0 5px 5px rgb(190, 190, 190);
+}
+
+.gameAreaImage[data-devicestate="disabled"] {
+
+    -webkit-filter: brightness(25%);
+}
+
+.gameAreaImage[data-state="empty"][data-devicestate="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="error"][data-devicestate="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="error"][data-devicestate="warning"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="disabled"][data-devicestate="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="disabled"][data-devicestate="cashlessYellow"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="disabled"][data-devicestate="cashlessWarning"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="error"][data-devicestate="cashlessWarning"] {
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="error"][data-devicestate="cashlessYellow"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="empty"][data-devicestate="cashlessWarning"] {
+   -webkit-filter: brightness(25%) grayscale(100%);
+
+}
+
+.gameAreaImage[data-state="empty"][data-devicestate="cashlessYellow"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}   
+
+.gameAreaImage[data-state="disabled"][data-devicestate="warning"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="empty"][data-devicestate="disabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="empty"][data-devicestate="warning"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="error"][data-devicestate="disabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="disabled"][data-devicestate="disabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="empty"][data-devicestate="error"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="error"][data-devicestate="error"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-state="disabled"][data-devicestate="error"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.gameAreaImage[data-game="Powerball"] {
+
+    background-image: url(content/images/en/button_pball.png);
+}
+
+.gameAreaImage[data-game="Powerball"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/pball_wide.png);
+}
+
+.gameAreaImage[data-game="Powerball"]:lang(es) {
+
+    background-image: url(content/images/es/button_pball_ES.png);
+}
+
+.gameAreaImage[data-game="Powerball"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/pball_wide.png);
+}
+
+.gameAreaImage[data-game="Powerball"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_pball.jpg);
+}
+
+.gameAreaImage[data-game="Powerball"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_pball.jpg);
+}
+
+.gameAreaImage[data-game="MegaMillions"] {
+
+    background-image: url(content/images/en/button_mega.png);
+}
+
+.gameAreaImage[data-game="MegaMillions"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/mm_wide.png);
+}
+
+.gameAreaImage[data-game="MegaMillions"]:lang(es) {
+
+    background-image: url(content/images/es/button_mega_ES.png);
+}
+
+.gameAreaImage[data-game="MegaMillions"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/mm_wide.png);
+}
+
+.gameAreaImage[data-game="MegaMillions"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_mega.jpg);
+}
+
+.gameAreaImage[data-game="MegaMillions"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_mega.jpg);
+}
+
+.gameAreaImage[data-game="Lotto"] {
+
+    background-image: url(content/images/en/button_lotto.png);
+}
+
+.gameAreaImage[data-game="Lotto"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/lotto_wide.png);
+}
+
+.gameAreaImage[data-game="Lotto"]:lang(es) {
+
+    background-image: url(content/images/es/button_lotto_ES.png);
+}
+
+.gameAreaImage[data-game="Lotto"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/lotto_wide.png);
+}
+
+.gameAreaImage[data-game="Lotto"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_lotto.jpg);
+}
+
+.gameAreaImage[data-game="Lotto"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_lotto.jpg);
+}
+
+.gameAreaImage[data-game="Hit5"] {
+
+    background-image: url(content/images/en/button_hit5.png);
+}
+
+.gameAreaImage[data-game="Hit5"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/hit5_wide.png);
+}
+
+.gameAreaImage[data-game="Hit5"]:lang(es) {
+
+    background-image: url(content/images/es/button_hit5_ES.png);
+}
+
+.gameAreaImage[data-game="Hit5"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/hit5_wide.png);
+}
+
+.gameAreaImage[data-game="Hit5"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_hit5.jpg);
+}
+
+.gameAreaImage[data-game="Hit5"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_hit5.jpg);
+}
+
+.gameAreaImage[data-game="Match4"] {
+
+    background-image: url(content/images/en/button_match4.png);
+}
+
+.gameAreaImage[data-game="Match4"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/match4_wide.png);
+}
+
+.gameAreaImage[data-game="Match4"]:lang(es) {
+
+    background-image: url(content/images/es/button_match4_ES.png);
+}
+
+.gameAreaImage[data-game="Match4"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/match4_wide.png);
+}
+
+.gameAreaImage[data-game="Match4"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_match4.jpg);
+}
+
+.gameAreaImage[data-game="Match4"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_match4.jpg);
+}
+
+.gameAreaImage[data-game="Pick3"] {
+
+    background-image: url(content/images/en/button_pick3.png);
+}
+
+.gameAreaImage[data-game="Pick3"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/pick3_wide.png);
+}
+
+.gameAreaImage[data-game="Pick3"]:lang(es) {
+
+    background-image: url(content/images/es/button_pick3_ES.png);
+}
+
+.gameAreaImage[data-game="Pick3"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/pick3_wide.png);
+}
+
+.gameAreaImage[data-game="Pick3"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_pick3.jpg);
+}
+
+.gameAreaImage[data-game="Pick3"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_pick3.jpg);
+}
+
+.gameAreaImage[data-game="DailyKeno"] {
+
+    background-image: url(content/images/en/button_keno.png);
+}
+
+.gameAreaImage[data-game="DailyKeno"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/keno_wide.png);
+}
+
+.gameAreaImage[data-game="DailyKeno"]:lang(es) {
+
+    background-image: url(content/images/es/button_keno_ES.png);
+}
+
+.gameAreaImage[data-game="DailyKeno"][data-activesamplers="true"]:lang(es) {
+
+    background-image: url(content/images/en/keno_wide.png);
+}
+
+.gameAreaImage[data-game="DailyKeno"][data-presented="true"] {
+
+    background-image: url(content/images/en/display_keno_wager.png);
+}
+
+.gameAreaImage[data-game="DailyKeno"][data-presented="true"]:lang(es) {
+
+    background-image: url(content/images/es/display_keno_wager_ES.png);
+}
+
+.gameAreaImage[data-game="Sampler"][data-activesamplers="true"] {
+
+    background-image: url(content/images/en/SAMPLER_wide.png);
+}
+
+.gameAreaVendImage {
+
+    position: absolute;
+    width: 174px;
+    height: 174px;
+
+    background-color: white;
+
+    -webkit-box-shadow: 0 0 15px 5px #000;
+    -webkit-transition-property: top, left, -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: ease;
+
+    /* Force GPU - allows the dual filters to work*/
+    -webkit-transform: translateZ(0);
+}
+
+.gameAreaVendImageNoTransition {
+
+    -webkit-transition: none !important;
+}
+
+.gameAreaPlayslipImage {
+
+    position: absolute;
+    top: 125px;
+    left: 280px;
+    width: 520px;
+    height: 416px;
+    background-image: url(content/images/en/playslips_GTKgeneric.png);
+}
+
+.gameAreaPlayslipVendImage {
+
+    position: absolute;
+    top: 221px;
+    left: 428px;
+    width: 223px;
+    height: 223px;
+    -webkit-box-shadow: 0 0 15px 5px #000;
+    -webkit-transition-property: top, left, -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: ease;
+    background-image: url(content/images/en/generic_vend.png);
+
+    /* Force GPU - allows the dual filters to work*/
+    -webkit-transform: translateZ(0);
+}
+
+.gameAreaPriceDisplay {
+
+    position: absolute;
+    right: 10px;
+    padding: .2em .4em .2em 1em;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 0px;
+    border: rgb(255,255,255) 2px solid;
+    line-height: 26px;
+    text-align: right;
+    font-family: CantarellBold;
+    font-weight: bold;
+    font-size: 18pt;
+    text-shadow: black 1px 1px 1px;
+    display: none;
+    -webkit-box-shadow: 0 0 15px 3px #000;
+    pointer-events: none;
+    color: rgb(255,255,255);
+}
+
+.gameAreaPriceDisplay[data-gametype="ONLINE"] {
+
+    right: 10px;
+    bottom: 14px;
+}
+
+.gameAreaPriceDisplay[data-gametype="ONLINE"][data-activesamplers="true"] {
+
+    right: 5px;
+    bottom: 4px;    
+}
+
+.gameAreaPriceDisplay[data-gametype="ONLINE"][data-bins="28"] {
+
+    right: 10px;  
+    bottom: 6px;
+}
+
+.gameAreaPriceDisplay[data-gametype="ONLINE"][data-bins="28"][data-activesamplers="true"] {
+    
+    font-size: 20px;
+    line-height: 20px;   
+    right: 15px;    
+}
+
+.gameAreaPriceDisplay[data-gametype="INSTANT"] {
+
+    top: 158px;
+}
+
+.gameAreaPriceDisplay[data-gametype="INSTANT"][data-bins="28"] {
+
+    top: 142px;
+}
+
+.gameAreaPriceDisplay:not([data-game="Sampler"])[data-state="playable"][data-devicestate="enabled"],
+.gameAreaPriceDisplay:not([data-game="Sampler"])[data-state="playable"][data-devicestate="errorEnabled"] {
+    display: block;
+}
+
+.gameAreaPriceDisplay:not([data-game="Sampler"])[data-state="playable"][data-devicestate="warning"],
+.gameAreaPriceDisplay:not([data-game="Sampler"])[data-state="playable"][data-devicestate="cashlessWarning"] {
+
+    display: block;
+}
+
+.gameAreaPriceDisplay:not([data-game="Sampler"])[data-state="playable"][data-devicestate="cashlessYellow"] {
+
+    display: block;
+}
+
+.gameAreaNoticeDisplay{
+
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 87px;
+    width: 110px;
+    padding: .2em 1em .2em 1em;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    line-height: 20px;
+    text-align: center;
+    font-size: 14pt;
+    background-color: black;
+    display: none;
+    pointer-events: none;
+}
+
+.gameAreaNoticeDisplay[data-bins="28"] {
+
+    top: 80px;
+}
+
+.gameAreaNoticeDisplay[data-state="empty"] {
+
+    display: block;
+    border: 2px solid rgb(170, 170, 170);
+    color: white;
+}
+
+.gameAreaNoticeDisplay[data-state="error"] {
+
+    display: block;
+    border: 2px solid red;
+    color: red;
+}
+
+.gameAreaNoticeDisplay[data-state="error"][data-gametype="ONLINE"] {
+
+    display: none;
+}
+
+.gameAreaNewDisplay {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 90px;
+    width: 90px;
+    background-image: url(content/images/en/NEWGAME.png);
+    pointer-events: none;
+    display: block;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: ease;
+}
+.gameAreaNewDisplay:lang(fr) {
+
+    background-image: url(content/images/fr/NEWGAME_FR.png);
+}
+
+.gameAreaNewDisplayNoAnimation {
+
+    -webkit-transition: none !important;
+}
+
+.gameAreaNewDisplay:not([data-state="playable"]) {
+
+    display: none;
+}
+
+.gameAreaNewDisplay[data-devicestate="disabled"] {
+
+    -webkit-filter: brightness(25%);
+}
+
+.gameAreaCountDisplay {
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(content/assets_buttons.svg);
+    display: none;
+    pointer-events: none;
+    background-position: -469px -118px;
+}
+
+.gameAreaCountDisplay:lang(fr) {
+
+    background-position: -680px -117px;
+}
+
+.gameAreaCountDisplay[data-count="true"][data-state="playable"] {
+
+    display: block
+}
+
+.gameAreaCountDisplay[data-devicestate="disabled"] {
+
+    -webkit-filter: brightness(25%);
+}
+
+.gameAreaCountDisplayText {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    font-family: CantarellBold;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+    line-height: 50px;
+    pointer-events: none;
+}
+
+.gameAreaCountDisplayText h2 {
+
+    font-size: 14px;
+}
+
+/*
+// ----------------------------------------------------------------------------
+// PRESENTER
+// ----------------------------------------------------------------------------
+*/
+.presenterZone {
+
+    position: absolute;
+    left: 0px;
+    width: 1080px;
+    height: 672px;
+    -webkit-filter: none;
+    color: white;
+}
+
+.presenterZone[data-position="top"] {
+
+    top: 0px;
+}
+
+.presenterZone[data-position="bottom"] {
+
+    top: 790px;
+}
+
+.presenterZone[data-help="enabled"] {
+
+    -webkit-filter: brightness(25%) grayscale(100%);
+}
+
+.presenterInformationArea {
+
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    bottom: 50px;
+    right: 50px;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid #777777;
+    background-color: black;
+    overflow: hidden;
+}
+
+.presenterInformationAreaLoadedObject {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.presenterInformationAreaClose {
+
+    position: absolute;
+    top: 34px;
+    left: 34px;
+    width: 32px;
+    height: 32px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(content/assets_buttons.svg);
+    background-position: -62px -2px;
+    display: "block";
+}
+
+.presenterInformationAreaClose:active {
+
+    background-position: -62px -38px;
+}
+
+.presenterPYOArea {
+
+    position: absolute;
+    top: 5px;
+    left: 65px;
+    width: 940px;
+    height: 650px;
+    margin: 0px;
+    padding: 0px;
+    opacity: 1.0;
+    overflow: hidden;
+    border-radius: 10px;
+    pointer-events: auto;
+    border: 2px solid rgba(128,128,128,1);
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.presenterPYOArea[data-bins="28"] {
+
+    top: 65px;
+}
+
+.presenterOptionPYOButton {
+
+    position: absolute;
+    top: 0px;
+    left: 165px;
+    width: 180px;
+    height: 75px;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    font-family: CantarellBold;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 8px;
+    border: 2px solid #eeeeee;
+    text-shadow: black 1px 1px 1px;
+    background: -webkit-linear-gradient(top, #51A2FF 0%, #0739FF 100%);
+    -webkit-transition-property: top, left;
+    -webkit-transition-duration: .25s;
+    -webkit-transition-timing-function: linear;
+}
+
+.presenterOptionPYOButton:active {
+
+    background: -webkit-linear-gradient(top, #0739FF 0%, #51A2FF 100%);
+}
+
+.presenterOptionButton {
+
+    position: absolute;
+    width: 69px;
+    height: 69px;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid #ffffff;
+    border-radius: 60px;
+    background: -webkit-linear-gradient(top,  rgba(82, 172, 255, 1) 0%,rgba(1, 50, 207, 1) 100%);
+    -webkit-transition-property: top, left;
+    -webkit-transition-duration: 0.25s;
+    -webkit-transition-timing-function: linear;
+}
+
+.presenterOptionButton:active {
+
+    background: -webkit-linear-gradient(top,  rgba(1, 50, 207, 1) 0%,rgba(82, 172, 255, 1) 100%);
+}
+
+.presenterOptionButton[data-available="false"] {
+
+    background: -webkit-linear-gradient(top,  rgba(170, 172, 175, 1) 0%,rgba(94, 95, 98, 1) 100%);
+}
+
+.presenterOptionButton[data-available="false"]:active {
+
+    background: -webkit-linear-gradient(top,  rgba(94, 95, 98, 1) 0%,rgba(170, 172, 175, 1) 100%);
+}
+
+.presenterOptionButton[data-type="betType"] {
+
+    position: absolute;
+    width: 100px;
+    border: 2px solid #ffffff;
+    border-radius: 60px;
+    background-image: none;
+    background: -webkit-linear-gradient(top,  rgba(82, 172, 255, 1) 0%,rgba(1, 50, 207, 1) 100%);
+}
+
+.presenterOptionButton[data-type="betType"]:active {
+
+    background: -webkit-linear-gradient(top,  rgba(1, 50, 207, 1) 0%,rgba(82, 172, 255, 1) 100%);
+}
+
+.presenterOptionButton[data-type="betType"][data-available="false"] {
+
+    background: -webkit-linear-gradient(top,  rgba(170, 172, 175, 1) 0%,rgba(94, 95, 98, 1) 100%);
+}
+
+.presenterOptionButton[data-type="betType"][data-available="false"]:active {
+
+    background: -webkit-linear-gradient(top,  rgba(94, 95, 98, 1) 0%,rgba(170, 172, 175, 1) 100%);
+}
+
+.presenterOptionButton[data-type="numSpots"] {
+
+    position: absolute;
+    width: 100px;
+    border: 2px solid #ffffff;
+    border-radius: 60px;
+    background-image: none;
+    background: -webkit-linear-gradient(top,  rgba(82,172,255,1) 0%,rgba(1,50,207,1) 100%);
+}
+
+.presenterOptionButton[data-type="numSpots"]:active {
+
+    background: -webkit-linear-gradient(top,  rgba(1,50,207,1) 0%,rgba(82,172,255,1) 100%);
+}
+
+.presenterOptionButton[data-type="numSpots"][data-available="false"] {
+
+    background: -webkit-linear-gradient(top,  rgba(170, 172, 175, 1) 0%,rgba(94, 95, 98, 1) 100%);
+}
+
+.presenterOptionButton[data-type="numSpots"][data-available="false"]:active {
+
+    background: -webkit-linear-gradient(top,  rgba(94, 95, 98, 1) 0%,rgba(170, 172, 175, 1) 100%);
+}
+
+.presenterOptionButtonText {
+
+    position: absolute;
+    top: 12px;
+    left: -2px;
+    margin: 0px;
+    padding: 0px;
+    height: 68px;
+    width: 68px;
+    font-family: CantarellBold;
+    font-weight: bold;
+    font-size: 28px;
+    text-shadow: black 1px 1px 1px;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+.presenterOptionButtonText[data-type="betType"] {
+
+    font-family: CantarellBold;
+    font-weight: bold;
+    position: absolute;
+    top: 13px;
+    left: -3px;
+    width: 100px;
+    font-size: 18px;
+    text-align: center;
+    pointer-events: none;
+    line-height: 20px
+}
+
+.presenterOptionButtonText[data-type="numSpots"] {
+
+    font-family: CantarellBold;
+    font-weight: bold;
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: 100px;
+    font-size: 24px;
+    pointer-events: none;
+    line-height: 24px
+}
+
+.presenterOptionButtonInfoDisplay {
+
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    padding: 2px 2px 2px 2px;
+    border: 2px solid #ffffff;
+    color: white;
+    border-radius: 10px;
+    font-family: CantarellBold;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: rgba(0, 0, 0, 1);
+    pointer-events: none;
+}
+
+.presenterOptionButtonInfoDisplay[data-type="betType"] {
+
+    display: none;
+}
+
+.presenterOptionButtonInfoDisplay[data-type="numSpots"] {
+
+    display: none;
+}
+
+.presenterOptionLine {
+
+    position: absolute;
+    width: 3px;
+    background-color: #06a;
+    -webkit-transform-origin: top left;
+    -webkit-transition-property: height;
+    -webkit-transition-duration: 0.25s;
+    -webkit-transition-timing-function: linear;
+}
+
+.presenterInfoButton {
+
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    background-image: url(content/assets_buttons.svg);
+    background-position: -6px -2px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.presenterInfoButton:active {
+
+    background-position: -6px -37px;
+}
+
+.presenterCloseButton {
+
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    background-image: url(content/assets_buttons.svg);
+    background-position: -62px -2px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.presenterCloseButton:active {
+
+    background-position: -62px -37px;
+}
+
+.presenterTitle {
+
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    width: 1080px;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px #000, 2px 2px 25px #88f, 2px 2px 45px #33f, 2px 2px 65px #fff;
+    text-align: center;
+    line-height: 42px;
+}
+
+.presenterSamplerContainer {
+
+    position: absolute;
+
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    padding: 0px;
+    margin: 0px;
+}
+
+.presenterSamplerPlaque {
+
+    position: absolute;
+
+    width: 205px;
+    height: 260px;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    padding: 0px;
+    margin: 0px;
+
+    -webkit-transition-property: top, left, width, height, transform;
+    -webkit-transition-duration: 0.35s;
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-filter: none;
+
+     /* Force GPU - allows the dual filters to work*/
+    -webkit-transform: translateZ(0);
+}
+
+.presenterSamplerPlaqueNoTransition {
+
+    -webkit-transition: none !important;
+}
+
+.presenterSamplerButton {
+
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 195px;
+    height: 250px;
+
+    padding: 0px;
+    margin: 0px;
+
+    background-color: rgb(0, 0, 150);
+}
+
+.presenterSamplerButtonText {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    font-family: CantarellBold;
+    font-weight: normal;
+    font-size: 8pt;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+.presenterSamplerButtonText table {
+
+    width: 100%;
+    margin: 2px;
+}
+
+.presenterSamplerButtonText td {
+
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+.presenterSamplerButtonText td#price {
+
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    width: 45px;
+}
+
+.presenterSamplerButtonText tr {
+}
+
+.presenterSamplerButtonText h1 {
+
+    width: 100%;
+    font-size: 14pt;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: -5px;
+    line-height: normal;
+    text-align: center;
+}
+
+.presenterSamplerButtonText h2 {
+
+    font-size: 12pt;
+    -webkit-margin-before: -20px;
+    -webkit-margin-after: 10px;
+    line-height: normal;
+    text-align: center;
+}
+
+.presenterSamplerButtonText p {
+
+    display: block;
+    text-align: left;
+    -webkit-margin-after: 0px;
+    -webkit-margin-before: 0px;
+    margin-left: 5px;
+}
+
+.presenterSamplerButtonPrice {
+
+    position: absolute;
+
+    bottom: 10px;
+    right: 10px;
+
+    padding: .2em .4em .2em 1em;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 0px;
+    border: rgb(255,255,255) 2px solid;
+    line-height: 26px;
+    text-align: right;
+    font-family: CantarellBold;
+    font-weight: bold;
+    font-size: 14pt;
+    text-shadow: black 1px 1px 1px;
+    -webkit-box-shadow: 0 0 15px 5px #000;
+    pointer-events: none;
+    color: white;
+    background-color: rgb(0, 0, 150);
+}
+
+.presenterSamplerButton:active {
+
+    -webkit-box-shadow: 0 0 5px 5px rgb(190, 190, 190);
+}
+
+
+/*
+// ----------------------------------------------------------------------------
+// GAME ZONE
+// ----------------------------------------------------------------------------
+*/
+.modalZone {
+
+    position: absolute;
+    top: 134px;
+    left: 200px;
+    width: 680px;
+    height: 740px;
+    color: white;
+    border-radius: 8px;
+    border: 2px solid rgb(128,128,128);
+    background-color: rgba(0, 0, 0, 0.95);
+
+    -webkit-box-shadow: 0px 0px 25px 15px #000000;
+}
+
+.modalZone[data-bins="28"] {
+
+    top: 492px;
+}
+
+.modalZone button {
+    color: white;
+    font-weight: bold;
+    font-size: 2.2em;
+    border-radius: 7px;
+    border: none;
+    text-align: center;
+    border: 3px solid rgb(64,64,64);
+    font-family: guiFont;
+}
+
+.modalZone[data-position="top"] {
+
+    top: 10px;
+    left: 10px;
+    width: 1050px;
+    height: 636px;
+}
+
+.modalZone[data-position="top"][data-bins="28"] {
+
+    top: 73px;
+    left: 10px;
+    width: 1050px;
+    height: 636px;
+}
+
+.modalZone[data-position="bottom"] {
+
+    top: 881px;
+    left: 10px;
+    width: 1050px;
+    height: 636px;
+}
+
+.modalZone[data-position="bottom"][data-bins="28"] {
+
+    top: 930px;
+    left: 10px;
+    width: 1050px;
+    height: 636px;
+}
+
+.modalOkayButton {
+
+    position: absolute;
+    bottom: 10px;
+    padding: .2em 2em .2em 2em;
+    width: 350px;
+    left: 50%;
+    margin-left: -175px;
+    background: -webkit-linear-gradient(top,  rgba(82,172,255,1) 0%,rgba(1,50,207,1) 100%);
+}
+
+.modalOkayButton:active {
+
+    background: -webkit-linear-gradient(top,  rgba(1,50,207,1) 0%,rgba(82,172,255,1) 100%);
+}
+
+.modalYesButton {
+    position: absolute;
+    bottom: 10px;
+    padding: .2em .2em .2em .2em;
+    width: 250px;
+    left: 70%;
+    margin-left: -125px;
+    background: -webkit-linear-gradient(top,  rgba(0,172,0,1) 0%,rgba(0,48,0,1) 100%);
+}
+
+.modalYesButton:active {
+
+    background: -webkit-linear-gradient(top,  rgba(0,48,0,1) 0%,rgba(0,172,0,1) 100%);
+}
+
+.modalNoButton {
+    position: absolute;
+    bottom: 10px;
+    padding: .2em .2em .2em .2em;
+    width: 250px;
+    left: 30%;
+    margin-left: -125px;
+    background: -webkit-linear-gradient(top,  rgba(255,0,0,1) 0%,rgba(64,0,0,1) 100%);
+}
+
+.modalNoButton:active {
+
+    background: -webkit-linear-gradient(top,  rgba(64,0,0,1) 0%,rgba(255,0,0,1) 100%);
+}
+
+
+.modalInputField {
+
+    width: 400px;
+    margin-left: 55px;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    border: 1px solid #0132CF;
+    border-radius: 8px;
+    color: #000000;
+    text-align: center;
+    -webkit-box-shadow: inset 0 0 11px #fff;
+}
+
+.modalNumberPadButton {
+
+    padding: .2em .2em .2em .2em;
+    margin: 10px;
+    width: 150px;
+    font-size: 2.2em;
+    border: 1px solid #0132CF;
+    background: -webkit-linear-gradient(top,  rgba(82,172,255,1) 0%,rgba(1,50,207,1) 100%);
+}
+
+.modalNumberPadButton:active {
+
+    background: -webkit-linear-gradient(top,  rgba(1,50,207,1) 0%,rgba(82,172,255,1) 100%);
+}
+
+.modalFrame {
+
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    border: 0px;
+    margin: 0px;
+    overflow: hidden;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000, 0 0 25px #999, 0 0 50px #555, 0 0 25px #fff;
+}
+
+.modalBetslip {
+
+    position: relative;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    width: 450px;
+    height: 450px;
+
+    border: none;
+}
+
+.modalFrame h1 {
+
+    font-size: 42px;
+}
+
+.modalFrame h2 {
+
+    font-size: 26px;
+}
+
+.modalFrame p {
+
+    font-size: 32pt;
+}
+
+.countDown {
+    position: absolute;
+    width: 45px;
+    left: 306px;
+    top: 230px;
+    font-size: 35px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000, 0 0 25px #999, 0 0 50px #555, 0 0 25px #fff;
+}
+
+.ticketLayout {
+
+    margin-top:100px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 535px;
+    width: 300px;
+    background-color: white;
+}
+
+.ticketLogo {
+
+    position: relative;
+    top: 5px;
+    height: 79px;
+    width: 199px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    background-size: cover;
+}
+
+.ticketLogo[data-game="Powerball1"] {
+    background: url(content/images/en/digital_ticket_pball.png);
+}
+
+.ticketLogo[data-game="Powerball2"] {
+    background: url(content/images/en/digital_ticket_mega.png);
+}
+
+.ticketLogo[data-game="Lotto1"] {
+    background: url(content/images/en/digital_ticket_lotto.png);
+}
+
+.ticketLogo[data-game="Lotto2"] {
+    background: url(content/images/en/digital_ticket_hit5.png);
+}
+
+.ticketLogo[data-game="Numbers2"] {
+    background: url(content/images/en/digital_ticket_match4.png);
+}
+
+.ticketLogo[data-game="Numbers1"] {
+    background: url(content/images/en/digital_ticket_pick3.png);
+}
+
+.ticketLogo[data-game="Keno1"] {
+    background: url(content/images/en/digital_ticket_keno.png);
+}
+
+.ticketBoardList {
+
+    position:relative;
+    width: 90%;
+    font-size: 24px;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    color: rgb(96,96,96);
+    font-family: guiFont;
+    font-weight: bold;
+    text-shadow: black 0px 0px 0px;
+}
+
+.ticketText {
+
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(48,48,48);
+    font-family: guiFont;
+    font-weight: bold;
+    text-shadow: black 0px 0px 0px;
+}
+
+.ticketTextLarge {
+
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    color: rgb(0,0,0);
+    font-family: guiFont;
+    font-weight: bold;
+    text-shadow: black 0px 0px 0px;
+}
+
+.pyoKenoTextLabel {
+
+    font-family: guiFont, Verdana, Geneva, sans-serif;
+    color: rgb(255,255,255);
+    font-size: 20px;
+    line-height: 20px;
+    display: inline-block;
+    position: relative;
+    float:left;
+    text-align: center;
+    margin-right:10px;
+    margin-left: 0px;
+    margin-top: 2px;
+    background: rgb(48,48,48);
+    padding: 5px;
+    border-radius: 4px;
+}
+.pyoKenoTextSpot {
+
+    font-family: guiFont, Verdana, Geneva, sans-serif;
+    color: rgb(32,32,32);
+    font-size: 24px;
+    line-height: 24px;
+    display: inline-block;
+    position: relative;
+    float:left;
+    text-align: center;
+    margin-top: 6px;
+}
+
+#pyoKenoContainer {
+
+    position:relative;
+    height: 170px;
+    width: 100%;
+    display:inline-block;
+}
+
+.pyoKenoSpotsContainer {
+
+    width: 30%;
+    height: 170px;
+    display: inline-block;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-left: 40px;
+}
+.pyoKenoSpot {
+
+    width: 80px;
+    height: 30px;
+    display:inline-block;
+}
+
+/*
+
+CASHLESS
+
+*/
+
+.quickNumberPad, .fullModalKeyPad {
+    width: 90%;
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 70px;
+    margin: auto;
+}
+
+.quickNumberPad {
+    top: 185px;
+}
+
+.fullModalKeyPad {
+    top: 180px;
+}
+
+/*
+.quickNumberPad[data-position="top"], .fullModalKeyPad[data-position="top"]  {
+    width: 65%;
+    left: 150px;
+}
+
+.quickNumberPad[data-position="bottom"], .fullModalKeyPad[data-position="bottom"]  {
+    width: 65%;
+    left: 150px;
+}
+*/
+
+
+.quickNumberPad > .modalNoButton, .fullModalKeyPad > .modalNoButton {
+    left: 125px;
+}
+
+.quickNumberPad > .modalNoButton[data-position="top"], 
+.quickNumberPad > .modalNoButton[data-position="bottom"],
+.fullModalKeyPad > .modalNoButton[data-position="top"], 
+.fullModalKeyPad > .modalNoButton[data-position="bottom"], {
+    left: 125px;
+}    
+
+.quickNumberPad > .modalYesButton, .fullModalKeyPad > .modalYesButton {
+    margin-left: -146px;
+}
+
+/*
+.quickNumberPad > .modalYesButton[data-position="top"], 
+.quickNumberPad > .modalYesButton[data-position="bottom"],
+.fullModalKeyPad > .modalYesButton[data-position="top"], 
+.fullModalKeyPad > .modalYesButton[data-position="bottom"] {
+    margin-left: -190px;
+}
+*/
+
+.quickNumberPad h1 {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+}
+
+.fullModalKeyPad h1 {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+}
+
+
+.quickKeyPadStroke  {
+    width: 268px;
+    height: 50px;
+    background: -webkit-linear-gradient(top, rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);
+    margin-right: 14px;
+    margin-bottom: 15px;
+    font: 28px guiFont;
+}
+
+.otherButton {
+
+    width: auto;
+    height: 50px;
+    padding-left: 23px;
+    padding-right: 23px;
+    text-align: center;
+    background: -webkit-linear-gradient(top, rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);    
+    margin-right: 14px;
+    margin-bottom: 15px;
+    font: 28px guiFont;
+}
+
+.otherButtonFull {
+
+    width: auto;
+    height: 50px;
+    padding-left: 23px;
+    padding-right: 23px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    position: relative;
+    left: -30px;
+    text-align: center;
+    background: -webkit-linear-gradient(top, rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);    
+    font: 28px guiFont;
+}
+
+
+.fullKeyPadStroke {
+   width: 168px;
+   height: 50px;
+   background: -webkit-linear-gradient(top, rgba(0,172,255,1) 0%,rgba(0,87,255,1) 100%);
+   margin-right: 14px;
+   margin-bottom: 15px;
+   font: 28px guiFont; 
+}
+
+.quickKeyPadStroke:active, .fullKeyPadStroke:active, .otherButton:active {
+    background: -webkit-linear-gradient(top, rgb(232,202,0) 0%,rgb(213,128,0) 100%);
+
+}
+
+.quickKeyPadStrokeSelected {
+    background: -webkit-linear-gradient(top, rgb(232,202,0) 0%,rgb(213,128,0) 100%);
+}
+
+
+.keypadInput {
+    border-radius: 10px;
+    font: 32px guiFont;
+    width: 85%;
+    height: 45px;
+    text-align: right;
+    padding-right: 15px;
+    border: none;
+    margin-bottom: 15px;
+    pointer-events: none;
+}
+
+
+
+/*
+.keypadInput[data-position="top"], .keypadInput[data-position="bottom"] {
+    width: 75%;
+}
+*/
+
+.keypadCreditMaxed {
+    left: 176px;
+    top: -63px;
+    position: absolute;
+}
+
+.keypadCreditMaxed h2 {
+   color: red;
+   padding: 0 0 8px 0;
+   font-size: 26px;
+}
+
+.backArrow {
+    position: relative;
+    top: 2px;
+}
+
+
+.changeHeadlinePosition {
+    position: absolute;
+    margin: 0 auto 15px 0;
+    top: 105px;
+    font-size: 26px;
+    text-align: center;
+    left: 145px;
+    text-shadow: 2px 2px 2px #000, 0 0 25px #999, 0 0 50px #555, 0 0 25px #fff;
+}
+
+.promptAreaCashLessMessage {
+    display: block;
+    font-size: 18px;
+    color: yellow;
+    width: 255px;
+    top: 60px;
+    left: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.promptAreaCashLessMessageHidden {
+    display: none;
+}
+
+.cash-prompt {
+    font-size: 42px;
+}

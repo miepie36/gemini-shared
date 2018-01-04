@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>GTGUI Baseline - Cashless</title>
+
+        <link rel="stylesheet" type="text/css" href="gtgui-OneToOne-0.0.0.css" media="screen"/>
+
+        <script src="gtgui-core.js"></script>
+        <script src="gtgui-OneToOne-0.0.0.js"></script>
+
+        <script>
+
+            window.onload = function() {
+
+                var _gui = null;
+
+                if (GTGUI === undefined) {
+
+                    console.log("Gemini Touch GUI interface not loaded.");
+                    return;
+                }
+
+                // Create the gui
+                _gui = new GTGUI.Main();
+                _gui.create(GTGUI.OneToOne, "gtgui-config.json");
+            };
+        </script>
+    </head>
+    <body>
+        <div class="guiDiv"></div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "game": "Jeu de mots",
+    "gameButtonImage": "174x174/77402_jeudemots_174.jpg",
+    "gamePresentedImage": "infoScreens/77402_jeudemots_info.jpg",
+    "gamePresentedImageSize": "255x550",
+    "gameInfo": "infoScreens/77402_jeudemots.html",
+    "vendImage": "infoScreens/77402_jeudemots_info.jpg",
+    "priceDisplayColor": "rgb(200, 155, 5)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

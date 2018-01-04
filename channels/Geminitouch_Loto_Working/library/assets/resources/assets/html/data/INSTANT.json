@@ -1,0 +1,13 @@
+{
+    "game" : "NOT DEFINED",
+    "gameButtonImage": "no_game_image.jpg",
+    "gamePresentedImage": "no_game_image",
+    "gameInfo": "",
+    "vendImage": "no_game_image",
+    "priceDisplayColor": "",
+    "info" : {
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount" : "0"
+    }
+}

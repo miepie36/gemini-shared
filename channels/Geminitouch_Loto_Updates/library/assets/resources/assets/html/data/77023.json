@@ -1,0 +1,15 @@
+{
+    "game": "77023",
+    "gameButtonImage": "174x174/77023_diamants_174.jpg",
+    "gamePresentedImage": "infoScreens/77023_diamants_info.jpg",
+    "gamePresentedImageSize": "259x550",
+    "gameInfo": "infoScreens/77023_diamants.html",
+    "vendImage": "174x174/77023_diamants_174.jpg",
+    "priceDisplayColor": "rgb(50, 50, 20)",
+    "info" : {
+        "ticketPrice": "USD10.00",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "game": "Multimillionnaire",
+    "gameButtonImage": "174x174/77002_multimillionnaire_174.jpg",
+    "gamePresentedImage": "infoScreens/77002_multimillionnaire_info.jpg",
+    "gamePresentedImageSize": "220x550",
+    "gameInfo": "infoScreens/77002_multimillionnaire.html",
+    "vendImage": "infoScreens/77002_multimillionnaire_info.jpg",
+    "priceDisplayColor": "rgb(0, 0, 0)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "3"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window x="0" y="0" width="1080" height="1920" type="None" popup="false" >
+   <content dur="8" id="default.jpg" urn="assets/images/default.jpg" thumbnail="assets/thumbnails/default.jpg" forceaspectratio="false" />
+</window>

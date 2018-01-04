@@ -1,0 +1,8 @@
+<ScenarioLibrary>
+  <ScenarioDefinition name='language_french' lastModified='1505335597950'>
+     <ConditionDefinition observer='LanguagePreferenceObserver' operator='EQ' observerProperty='preference.language.preference' target='fr' />
+  </ScenarioDefinition>
+  <ScenarioDefinition name='language_english' lastModified='1505335597950'>
+     <ConditionDefinition observer='LanguagePreferenceObserver' operator='EQ' observerProperty='preference.language.preference' target='en' />
+  </ScenarioDefinition>
+</ScenarioLibrary>

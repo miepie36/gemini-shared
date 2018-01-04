@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window x="0" y="456" width="1080" height="1464" fullscreen="false" popup="false" >
+   <content dur="0" id="gui.html" urn="assets/html/gui.html" thumbnail="assets/thumbnails/gui.jpg" forceaspectratio="false" />
+</window>

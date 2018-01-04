@@ -1,0 +1,15 @@
+{
+    "game": "Bingo",
+    "gameButtonImage": "174x174/77201_bingo_174.jpg",
+    "gamePresentedImage": "infoScreens/77201_bingo_info.jpg",
+    "gamePresentedImageSize": "257x550",
+    "gameInfo": "infoScreens/77201_bingo.html",
+    "vendImage": "174x174/77201_bingo_174.jpg",
+    "priceDisplayColor": "rgb(0, 0, 150)",
+    "info" : {
+        "ticketPrice": "USD2.00",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

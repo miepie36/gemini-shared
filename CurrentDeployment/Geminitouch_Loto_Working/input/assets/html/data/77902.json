@@ -1,0 +1,15 @@
+{
+    "game": "Gagnant à vie",
+    "gameButtonImage": "174x174/77902_GAV_174.jpg",
+    "gamePresentedImage": "infoScreens/77902_GAV_info.jpg",
+    "gamePresentedImageSize": "301x550",
+    "gameInfo": "infoScreens/77902_GAV.html",
+    "vendImage": "infoScreens/77902_GAV_info.jpg",
+    "priceDisplayColor": "rgb(41, 12, 80)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

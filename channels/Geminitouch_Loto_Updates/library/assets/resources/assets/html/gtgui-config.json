@@ -1,0 +1,24 @@
+{
+    "core" : {
+        "webSocketAddress" : "localhost:54000",
+        "onlineGames" : [],
+        "binGames" : []
+    },
+    "layout" : {
+
+        "IDLE_TIMEOUT" : "60000",
+        "ATTRACT_TIMEOUT" : "0",
+        "IDLE_AGE_VERIFICATION_TIMEOUT_WITH_CREDITS" : "45000",
+        "IDLE_AGE_VERIFICATION_TIMEOUT_WITHOUT_CREDITS" : "15000",
+        "IDLE_PRESENTER_TIMEOUT" : "60000",
+        "IDLE_CASHLESS_MODAL": "45000",
+        "IDLE_MODAL_TIMEOUT" : "15000",
+        "IDLE_HELP_TIMEOUT" : "15000",
+        "IDLE_CLICK_TIMEOUT" : "0",
+        "VERIFICATION_TIMEOUT" : "0",
+        "INSTANT_VEND_DELAY" : "2000",
+        "DEFAULT_LANGUAGE" : "fr",
+        "REQUIRE_GAME_PARAMETERS" : "false",
+        "ATTRACT_SHOW_NAME" : "attract_show"
+    }
+}

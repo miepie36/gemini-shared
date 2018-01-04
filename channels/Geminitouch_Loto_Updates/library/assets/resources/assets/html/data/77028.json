@@ -1,0 +1,15 @@
+{
+    "game": "Game 77028",
+    "gameButtonImage": "174x174/77028_etiquettes_174.jpg",
+    "gamePresentedImage": "infoScreens/77028_etiquettes_info.jpg",
+    "gamePresentedImageSize": "259x550",
+    "gameInfo": "infoScreens/77028_etiquettes.html",
+    "vendImage": "174x174/77028_etiquettes_174.jpg",
+    "priceDisplayColor": "rgb(0, 0, 150)",
+    "info" : {
+        "ticketPrice": "USD3.00",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

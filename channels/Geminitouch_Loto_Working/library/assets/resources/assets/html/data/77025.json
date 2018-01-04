@@ -1,0 +1,15 @@
+{
+    "game": "Cadeau Surprise",
+    "gameButtonImage": "174x174/77025_cadeausurprise_174.jpg",
+    "gamePresentedImage": "infoScreens/77025_cadeausurprise_info.jpg",
+    "gamePresentedImageSize": "345x550",
+    "gameInfo": "infoScreens/77025_cadeausurprise.html",
+    "vendImage": "infoScreens/77025_cadeausurprise_info.jpg",
+    "priceDisplayColor": "rgb(184, 4, 30)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

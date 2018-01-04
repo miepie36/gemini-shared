@@ -1,0 +1,14 @@
+{
+    "game": "DEMO GAME",
+    "gameButtonImage": "757_cashetteUnofficial_174px.jpg",
+    "gamePresentedImage": "757_cashette_348.jpg",
+    "gameInfo": "757_Cashette.html",
+    "vendImage": "757_cashetteUnofficial_174px.jpg",
+    "priceDisplayColor": "rgb(0, 0, 150)",
+    "info" : {
+        "ticketPrice": "USD2.00",
+        "numberOfTickets": ["10"],
+        "newGame": "false",
+        "lowTicketCount": "5"
+    }
+}

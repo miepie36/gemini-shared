@@ -1,0 +1,15 @@
+{
+    "game": "Slingo trio",
+    "gameButtonImage": "174x174/77031_slingotrio_174.jpg",
+    "gamePresentedImage": "infoScreens/77031_slingotrio_info.jpg",
+    "gamePresentedImageSize": "257x550",
+    "gameInfo": "infoScreens/77031_slingotrio.html",
+    "vendImage": "infoScreens/77031_slingotrio_info.jpg",
+    "priceDisplayColor": "rgb(200, 155, 5)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "true",
+        "lowTicketCount": "10"
+    }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<playlist contentfolder="http://10.8.76.142:8090/testtool">
+  <show file="channeldefault.sdf" name="channeldefault" repeat="false" uninterruptable="false"/>
+  <show file="banner_ad_video_1.sdf" name="banner_ad_video_1" repeat="true" uninterruptable="false"/>
+  <show file="jackpot_shows.sdf" name="jackpot_shows" repeat="true" uninterruptable="false"/>
+  <show file="banner_ad_video_2.sdf" name="banner_ad_video_2" repeat="true" uninterruptable="false"/>
+  <show file="attract_show.sdf" name="attract_show" repeat="true" uninterruptable="false"/>
+  <show file="gui.sdf" name="gui" repeat="false" uninterruptable="false"/>
+</playlist>

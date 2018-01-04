@@ -1,0 +1,15 @@
+{
+    "game": "Scrabble",
+    "gameButtonImage": "174x174/77801_scrabble_174.jpg",
+    "gamePresentedImage": "infoScreens/77801_scrabble_info.jpg",
+    "gamePresentedImageSize": "257x550",
+    "gameInfo": "infoScreens/77801_scrabble.html",
+    "vendImage": "infoScreens/77801_scrabble_info.jpg",
+    "priceDisplayColor": "rgb(200, 155, 5)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

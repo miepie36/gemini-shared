@@ -1,0 +1,15 @@
+{
+    "game": "7 en folie",
+    "gameButtonImage": "174x174/77041_7enfolie_174.jpg",
+    "gamePresentedImage": "infoScreens/77041_7enfolie_info.jpg",
+    "gamePresentedImageSize": "257x550",
+    "gameInfo": "infoScreens/77041_7enfolie.html",
+    "vendImage": "infoScreens/77041_7enfolie_info.jpg",
+    "priceDisplayColor": "rgb(200, 155, 5)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "true",
+        "lowTicketCount": "10"
+    }
+}

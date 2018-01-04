@@ -1,0 +1,15 @@
+{
+    "game": "7 chanceux",
+    "gameButtonImage": "174x174/77301_7chanceux_174.jpg",
+    "gamePresentedImage": "infoScreens/77301_7chanceux_info.jpg",
+    "gamePresentedImageSize": "259x550",
+    "gameInfo": "infoScreens/77301_7chanceux.html",
+    "vendImage": "174x174/77301_7chanceux_174.jpg",
+    "priceDisplayColor": "rgb(0, 0, 150)",
+    "info" : {
+        "ticketPrice": "USD1.00",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

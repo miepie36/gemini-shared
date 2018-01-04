@@ -1,0 +1,15 @@
+{
+    "game": "Tricot de Noël",
+    "gameButtonImage": "174x174/77024_tricot_174.jpg",
+    "gamePresentedImage": "infoScreens/77024_tricot_info.jpg",
+    "gamePresentedImageSize": "345x550",
+    "gameInfo": "infoScreens/77024_tricot.html",
+    "vendImage": "infoScreens/77024_tricot_info.jpg",
+    "priceDisplayColor": "rgb(184, 4, 30)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "false",
+        "lowTicketCount": "10"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "game": "Jour de chance",
+    "gameButtonImage": "174x174/77029_jourdechance_174.jpg",
+    "gamePresentedImage": "infoScreens/77029_jourdechance_info.jpg",
+    "gamePresentedImageSize": "550x500",
+    "gameInfo": "infoScreens/77029_jourdechance.html",
+    "vendImage": "infoScreens/77029_jourdechance_info.jpg",
+    "priceDisplayColor": "rgb(184, 4, 30)",
+    "info" : {
+        "ticketPrice": "0",
+        "numberOfTickets": ["1", "2", "5", "10"],
+        "newGame": "true",
+        "lowTicketCount": "10"
+    }
+}
